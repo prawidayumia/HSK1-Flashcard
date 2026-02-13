@@ -1,66 +1,44 @@
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background-color: #fdf2f2; 
-    margin: 0; padding: 20px; 
-    display: flex; justify-content: center; 
+:root {
+    --primary: #ee4d2d;
+    --secondary: #333;
+    --bg: #fdf2f2;
 }
-.container { 
-    background: white; padding: 25px; border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-    width: 100%; max-width: 500px; text-align: center; 
-}
-h1 { color: #d32f2f; margin-bottom: 10px; }
 
-/* Level Switcher */
-.level-switcher { margin-bottom: 25px; display: flex; justify-content: center; gap: 10px; }
-.level-btn { 
-    padding: 8px 20px; border: 2px solid #ee4d2d; background: white; 
-    color: #ee4d2d; border-radius: 20px; cursor: pointer; font-weight: bold; 
-}
-.level-btn.active { background: #ee4d2d; color: white; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; padding: 20px; display: flex; justify-content: center; }
+.container { background: white; width: 100%; max-width: 600px; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
+
+h1 { color: var(--primary); margin-top: 0; }
+
+/* Tombol Level */
+.level-switcher { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+.level-btn { padding: 10px 25px; border: 2px solid var(--primary); background: white; color: var(--primary); border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.level-btn.active { background: var(--primary); color: white; }
 
 /* Flashcard */
-.card { perspective: 1000px; width: 220px; height: 160px; margin: 0 auto 20px; cursor: pointer; }
-.card-inner { 
-    position: relative; width: 100%; height: 100%; 
-    transition: transform 0.6s; transform-style: preserve-3d; 
-    border: 3px solid #ee4d2d; border-radius: 15px; 
-}
+.card-container { margin-bottom: 40px; }
+.card { perspective: 1000px; width: 250px; height: 180px; margin: 0 auto 20px; cursor: pointer; }
+.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
 .card.flipped .card-inner { transform: rotateY(180deg); }
-.card-front, .card-back { 
-    position: absolute; width: 100%; height: 100%; 
-    backface-visibility: hidden; display: flex; 
-    flex-direction: column; justify-content: center; align-items: center; 
-}
-.card-front { font-size: 45px; color: #ee4d2d; font-weight: bold; }
-.card-back { background: #ee4d2d; color: white; transform: rotateY(180deg); border-radius: 10px; }
-#pinyin { font-size: 1.2rem; font-weight: bold; margin: 0; }
+.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 3px solid var(--primary); border-radius: 15px; }
+.card-front { background: white; font-size: 50px; color: var(--primary); font-weight: bold; }
+.card-back { background: var(--primary); color: white; transform: rotateY(180deg); padding: 10px; }
+#pinyin { font-size: 1.4rem; font-weight: bold; margin: 0; }
+#meaning { font-size: 1.1rem; margin-top: 10px; }
 
-.main-btn { 
-    background: #333; color: white; padding: 12px 20px; 
-    border: none; border-radius: 10px; cursor: pointer; width: 100%;
-}
+.next-btn { background: var(--secondary); color: white; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; width: 100%; font-size: 1rem; }
 
-/* Quiz */
-.option-btn { 
-    display: block; width: 100%; margin: 8px 0; padding: 12px; 
-    border: 1px solid #ddd; border-radius: 10px; cursor: pointer; background: white; 
-}
-.option-btn:hover { background: #fff5f5; border-color: #ee4d2d; }
-#score-box { font-weight: bold; color: #2e7d32; margin-top: 10px; font-size: 1.1rem; }
+/* Kuis */
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.option-btn { padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: white; cursor: pointer; transition: 0.2s; }
+.option-btn:hover { background: #fff5f5; border-color: var(--primary); }
+.score-board { margin-top: 15px; font-weight: bold; font-size: 1.2rem; color: #2e7d32; }
 
-/* Vocab Grid */
-.vocab-grid { 
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-    gap: 10px; margin-top: 20px; 
-}
-.vocab-item { 
-    background: #fffafa; padding: 10px; border-radius: 10px; 
-    border: 1px solid #ffebeb; text-align: center; 
-}
-.v-hanzi { display: block; font-size: 1.5rem; color: #ee4d2d; font-weight: bold; }
-.v-pinyin { display: block; font-size: 0.8rem; color: #666; }
-.v-meaning { display: block; font-size: 0.85rem; color: #333; }
+/* Vocab List */
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-top: 20px; }
+.vocab-item { background: #fffafa; padding: 12px; border-radius: 12px; border: 1px solid #ffebeb; }
+.v-hanzi { display: block; font-size: 1.6rem; color: var(--primary); font-weight: bold; }
+.v-pinyin { display: block; font-size: 0.8rem; color: #666; margin: 4px 0; }
+.v-meaning { display: block; font-size: 0.85rem; color: var(--secondary); font-weight: 500; }
 
-hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; }
-footer { margin-top: 30px; color: #bbb; font-size: 0.8rem; }
+hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+footer { font-size: 0.8rem; color: #ccc; margin-top: 20px; }
