@@ -1,4 +1,4 @@
-# 🏮 Latihan Mandarin HSK 1 - Flashcards & Quiz
+# 🏮 Latihan Mandarin HSK 2 - Flashcards & Quiz
 
 Halo! Ini adalah proyek website sederhana yang saya buat untuk membantu siapa saja belajar kosakata **Mandarin HSK 1** dengan cara yang lebih interaktif dan menyenangkan.
 
