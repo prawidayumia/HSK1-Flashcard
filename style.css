@@ -1,18 +1,66 @@
-body { font-family: sans-serif; background: #fdf2f2; display: flex; justify-content: center; padding: 20px; }
-.container { background: white; max-width: 500px; width: 100%; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.level-switcher { margin-bottom: 20px; }
-.level-btn { padding: 10px 20px; border: 2px solid #ee4d2d; background: white; color: #ee4d2d; border-radius: 20px; cursor: pointer; font-weight: bold; }
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: #fdf2f2; 
+    margin: 0; padding: 20px; 
+    display: flex; justify-content: center; 
+}
+.container { 
+    background: white; padding: 25px; border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    width: 100%; max-width: 500px; text-align: center; 
+}
+h1 { color: #d32f2f; margin-bottom: 10px; }
+
+/* Level Switcher */
+.level-switcher { margin-bottom: 25px; display: flex; justify-content: center; gap: 10px; }
+.level-btn { 
+    padding: 8px 20px; border: 2px solid #ee4d2d; background: white; 
+    color: #ee4d2d; border-radius: 20px; cursor: pointer; font-weight: bold; 
+}
 .level-btn.active { background: #ee4d2d; color: white; }
 
-/* Card Animation */
-.card { perspective: 1000px; width: 200px; height: 150px; margin: 20px auto; cursor: pointer; }
-.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; border: 2px solid #ee4d2d; border-radius: 10px; }
+/* Flashcard */
+.card { perspective: 1000px; width: 220px; height: 160px; margin: 0 auto 20px; cursor: pointer; }
+.card-inner { 
+    position: relative; width: 100%; height: 100%; 
+    transition: transform 0.6s; transform-style: preserve-3d; 
+    border: 3px solid #ee4d2d; border-radius: 15px; 
+}
 .card.flipped .card-inner { transform: rotateY(180deg); }
-.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.card-front { font-size: 40px; color: #ee4d2d; }
-.card-back { background: #ee4d2d; color: white; transform: rotateY(180deg); }
+.card-front, .card-back { 
+    position: absolute; width: 100%; height: 100%; 
+    backface-visibility: hidden; display: flex; 
+    flex-direction: column; justify-content: center; align-items: center; 
+}
+.card-front { font-size: 45px; color: #ee4d2d; font-weight: bold; }
+.card-back { background: #ee4d2d; color: white; transform: rotateY(180deg); border-radius: 10px; }
+#pinyin { font-size: 1.2rem; font-weight: bold; margin: 0; }
 
-.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
-.option-btn { padding: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; background: white; }
-.vocab-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 20px; }
-.vocab-item { background: #fffafa; border: 1px solid #eee; padding: 5px; border-radius: 5px; font-size: 0.8rem; }
+.main-btn { 
+    background: #333; color: white; padding: 12px 20px; 
+    border: none; border-radius: 10px; cursor: pointer; width: 100%;
+}
+
+/* Quiz */
+.option-btn { 
+    display: block; width: 100%; margin: 8px 0; padding: 12px; 
+    border: 1px solid #ddd; border-radius: 10px; cursor: pointer; background: white; 
+}
+.option-btn:hover { background: #fff5f5; border-color: #ee4d2d; }
+#score-box { font-weight: bold; color: #2e7d32; margin-top: 10px; font-size: 1.1rem; }
+
+/* Vocab Grid */
+.vocab-grid { 
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 10px; margin-top: 20px; 
+}
+.vocab-item { 
+    background: #fffafa; padding: 10px; border-radius: 10px; 
+    border: 1px solid #ffebeb; text-align: center; 
+}
+.v-hanzi { display: block; font-size: 1.5rem; color: #ee4d2d; font-weight: bold; }
+.v-pinyin { display: block; font-size: 0.8rem; color: #666; }
+.v-meaning { display: block; font-size: 0.85rem; color: #333; }
+
+hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; }
+footer { margin-top: 30px; color: #bbb; font-size: 0.8rem; }
