@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandarin Flashcards HSK 1</title>
+    <title>Mandarin HSK 1 - Prawidayumia</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <h1>Latihan HSK 1 🏮</h1>
         
         <div id="flashcard-section">
-            <h2>Flashcards</h2>
+            <p>Klik kartu untuk melihat arti</p>
             <div class="card" onclick="flipCard()">
                 <div class="card-inner" id="card-inner">
                     <div class="card-front" id="hanzi">你好</div>
@@ -21,21 +21,29 @@
                     </div>
                 </div>
             </div>
-            <button onclick="nextCard()">Next Card</button>
+            <button class="main-btn" onclick="nextCard()">Kartu Selanjutnya</button>
         </div>
 
         <hr>
 
         <div id="quiz-section">
-            <h2>Quiz Time!</h2>
+            <h2>Kuis Interaktif</h2>
             <div id="quiz-container">
-                <p id="question">Apa arti dari "谢谢"?</p>
-                <div id="options">
-                    </div>
+                <p id="question">Memuat pertanyaan...</p>
+                <div id="options"></div>
             </div>
-            <div id="score-display">Skor: <span id="current-score">0</span></div>
+            <div id="score-display">Skor Kamu: <span id="current-score">0</span></div>
+        </div>
+
+        <hr>
+
+        <div id="vocab-section">
+            <h2>Daftar Kosakata HSK 1</h2>
+            <div class="vocab-grid" id="vocab-list">
+                </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
