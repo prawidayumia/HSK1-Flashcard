@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandarin Master HSK</title>
+    <title>Belajar Mandarin HSK 1 & 2</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1 style="color: #ee4d2d;">Mandarin Master 🏮</h1>
+        <h1>Mandarin Master 🏮</h1>
 
         <div class="level-switcher">
             <button id="btn-hsk1" class="level-btn active" onclick="switchLevel(1)">HSK 1</button>
             <button id="btn-hsk2" class="level-btn" onclick="switchLevel(2)">HSK 2</button>
         </div>
 
-        <div class="card" id="main-card" onclick="flipCard()">
-            <div class="card-inner">
-                <div class="card-front"><span id="hanzi">...</span></div>
-                <div class="card-back">
-                    <p id="pinyin" style="font-weight:bold; font-size:1.2rem;"></p>
-                    <p id="meaning"></p>
+        <div id="flashcard-section">
+            <div class="card" onclick="flipCard()">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span id="hanzi">你好</span>
+                    </div>
+                    <div class="card-back">
+                        <p id="pinyin">Nǐ hǎo</p>
+                        <p id="meaning">Halo</p>
+                    </div>
                 </div>
             </div>
+            <button class="main-btn" onclick="nextCard()">Kartu Selanjutnya →</button>
         </div>
-        <button class="next-btn" onclick="nextCard()" style="width:100%; margin-top:10px; padding:10px; cursor:pointer;">Kartu Selanjutnya →</button>
 
         <hr>
 
         <div id="quiz-section">
-            <h2 id="quiz-title">Kuis HSK 1</h2>
-            <p id="question">Memuat soal...</p>
-            <div id="options" class="options-grid"></div>
-            <p>Skor: <span id="current-score">0</span></p>
+            <h2>Kuis <span id="quiz-level-text">HSK 1</span></h2>
+            <div id="quiz-container">
+                <p id="question">Memuat pertanyaan...</p>
+                <div id="options"></div>
+            </div>
+            <div id="score-box">Skor: <span id="current-score">0</span></div>
         </div>
 
         <hr>
 
-        <div class="list-container">
+        <div id="vocab-section">
             <h2>Daftar Kosakata</h2>
-            <div id="vocab-list" class="vocab-grid"></div>
+            <div class="vocab-grid" id="vocab-list"></div>
         </div>
+
+        <footer>prawidayumia &copy; 2026</footer>
     </div>
     <script src="script.js"></script>
 </body>
